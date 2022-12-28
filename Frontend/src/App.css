@@ -1,0 +1,172 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App {
+  height: auto;
+  background-color: #282c34;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.App-Title {
+  display: flex;
+  align-items: center;
+}
+
+.App-Logo {
+  margin-right: 15px;
+  height: 6vmin;
+}
+
+.App-body {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top: 30px;
+}
+
+.App-footer {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.Lobby-Header {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.Lobby-Loading {
+  min-height: 73vh;
+}
+
+.Lobby-LoadingGIF {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: -40px;
+}
+
+.Lobby-List {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.Lobby-Card {
+  margin: 20px 5px;
+}
+
+.Lobby-CardContent {
+  height: 110px;
+}
+
+.Lobby-CardText {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.Lobby-CreateCardText {
+  padding-top: 12px;
+  padding-bottom: 5px;
+}
+
+.Lobby-Create {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: -12px;
+}
+
+.Lobby-JoinButton {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: -12px;
+}
+
+.Lobby-RemoveButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.CodeBlock {
+  width: 800px;
+}
+
+.CodeBlock-Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.CodeBlock-SuccessImg {
+  border-radius: 10px;
+}
+
+.CodeBlock-h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.CodeBlock-Editor {
+  background-color:#1e1e1e;
+  border-color: #5f85d1;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.CodeBlock-ID {
+  font-size: 12px;
+}
+
+.CodeBlock-Button {
+  margin-right: 15px;
+
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
