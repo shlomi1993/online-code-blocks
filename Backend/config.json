@@ -1,8 +1,14 @@
 {
-	"region": "us-east-1",
-	"accessKeyId": "",
-	"secretAccessKey": "",
-	"port": 8080
+    "backend": {
+        "public_ip": "",
+        "private_ip": "",
+        "port": 8080
+    },
+    "database": {
+        "region": "us-east-1",
+        "accessKeyId": "",
+        "secretAccessKey": ""
+    }
 }
 
 

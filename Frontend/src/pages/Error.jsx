@@ -8,7 +8,7 @@ import '../App.css';
  */
 function Error() {
   return (
-    <div className='Lobby-Header'>
+    <div className='Lobby-header'>
       <h1>Error 404: Page not found 😵</h1>
     </div>
   );}

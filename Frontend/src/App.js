@@ -4,6 +4,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
+import Login from "./pages/Login"
 import Lobby from "./pages/Lobby";
 import CodeBlock from "./pages/CodeBlock";
 import Error from "./pages/Error";
@@ -14,12 +15,13 @@ const github = <a href='https://github.com/shlomi1993/' className='App-link'>Git
 
 // The app is divided to three visual parts - the header, the body and the footer.
 function App() {
+
   return (
     <div className="App">
       <Router>
         <header className="App-header">
-          <div className="App-Title">
-            <img src={require('./assets/logo.png')} className='App-Logo'/>
+          <div className="App-title">
+            <img src={require('./assets/logo.png')} className='App-logo'/>
             <h1>Online Code Blocks</h1>
           </div>
           <hr style={{
@@ -31,7 +33,8 @@ function App() {
         </header>
         <div className="App-body">
           <Routes>
-            <Route path="/" element={<Lobby />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/lobby" element={<Lobby />} />
             <Route path="/codeblock" element={<CodeBlock />} />
             <Route path="*" element={<Error />} />
           </Routes>

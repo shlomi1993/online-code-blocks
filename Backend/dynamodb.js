@@ -3,7 +3,7 @@
 // This file contains implementation of API functions to communicate with the DynamoDB.
 
 const AWS = require('aws-sdk');
-const config = require('./config.json');
+const config = require('./config.json').database;
 const uuid = require('uuid');
 
 AWS.config.update(config);

@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 import 'prismjs/themes/prism.css';
 import '../App.css'
 
-const backendUri = require('../config.json').backend;
+const backendUri = require('../config.json').gateway;
 const socket = io.connect(backendUri);
 
 /**
@@ -22,14 +22,14 @@ function CodeBlock() {
   const navigate = useNavigate();
   const location = useLocation();  // used to reference data from the lobby.
 
-  // Code-Block data.
+  // User and Code-Block data.
+  const username = location.state.username
   const blockId = location.state.codeblock.block_id;
   const blockName = location.state.codeblock.block_name;
   const [code, setCode] = useState(location.state.codeblock.code);
-  
+
   // User-connection data.
   const [isConnected, setIsConnected] = useState(false);
-  const [userType, setUserType] = useState(null);
   
   // Bonus - show a smile if the user wrote the right code.
   const ans = useState(location.state.codeblock.answer);
@@ -39,22 +39,18 @@ function CodeBlock() {
   const onClickBack = () => {
     socket.emit('bye', { roomId: blockId, socketId: socket.id });
     setIsConnected(false);
-    navigate('../');
+    const options = {
+      state: {
+        username: username,
+      }
+    }
+    navigate('../Lobby', options);
   }
 
   // This function tells the backend that the user has entered the code-block.
   const joinRoom = () => {
     socket.emit('join_room', blockId);
     setIsConnected(true);
-    fetch(`${backendUri}getMentor?blockId=${blockId}`)
-      .then(resp => resp.json())
-      .then(data => {
-        if (data.mentorId === socket.id) {
-          setUserType('Mentor');
-        } else {
-          setUserType('Student');
-        }
-      })
   }
 
   // This function requests to take the code stored in "code" variable, and store in in the DynamoDB.
@@ -71,16 +67,14 @@ function CodeBlock() {
       });
   }
 
-  // This function updates the text-field (i.e., IDE) if the user is a student.
+  // This function updates the text-field (i.e., code editor).
   const onCodeChange = (newCode) => {
-    if (userType === 'Student') {
-      setCode(newCode);
-      socket.emit('send_message', { roomId: blockId, message: newCode });
-      if (newCode === ans[0]) {
-        setSmile(true);
-      } else {
-        setSmile(false);
-      }
+    setCode(newCode);
+    socket.emit('send_message', { roomId: blockId, message: newCode });
+    if (newCode === ans[0]) {
+      setSmile(true);
+    } else {
+      setSmile(false);
     }
   }
 
@@ -114,23 +108,22 @@ function CodeBlock() {
   // The function renders a shareable text-field (IDE), and information and buttons around it.
   return (
     <div className='CodeBlock'>
-      <span className='CodeBlock-Button'>
+      <span className='CodeBlock-button'>
         <Button variant='contained' onClick={onClickBack}>◄ Return</Button>
       </span>
-      <span className='CodeBlock-Button'>
+      <span className='CodeBlock-button'>
         <Button variant='contained' onClick={onClickSave}>Save</Button>
       </span>
-      <div className='CodeBlock-Header'>
+      <div className='CodeBlock-header'>
         <div>
           <h2 className='CodeBlock-h2'>{blockName}</h2>
-          {userType && <h4 className='CodeBlock-h2'>Connected as: <i>{userType}</i></h4>}
-          {!userType && <h4 className='CodeBlock-h2'>Click the "Connect" button to start.</h4>}
+          <h4 className='CodeBlock-h2'>Connected as: <i>{username}</i></h4>
         </div>
         <div>
-          <img src={require('../assets/success.gif')} className='CodeBlock-SuccessImg' width='160' hidden={!smile}></img>
+          <img src={require('../assets/success.gif')} className='CodeBlock-success-img' width='160' hidden={!smile}></img>
         </div>
       </div>
-      <div className='CodeBlock-Editor'>
+      <div className='CodeBlock-editor'>
         <Editor
           value={code}
           onValueChange={input => onCodeChange(input)}
@@ -142,7 +135,7 @@ function CodeBlock() {
           }}
         />
       </div>
-      <p className='CodeBlock-ID'>CodeBlock ID is {blockId}</p>
+      <p className='CodeBlock-id'>CodeBlock ID is {blockId}</p>
     </div>
   );
 }
