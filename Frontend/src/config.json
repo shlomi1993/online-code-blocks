@@ -1,3 +1,13 @@
 {
-    "backend": "https://16tzh9vb6e.execute-api.us-east-1.amazonaws.com/"
+    "localhost": "http://localhost:8080/",
+    "gateway": "https://16tzh9vb6e.execute-api.us-east-1.amazonaws.com/",
+    "firebase": {
+        "apiKey": "",
+        "authDomain": "",
+        "projectId": "",
+        "storageBucket": "",
+        "messagingSenderId": "",
+        "appId": "",
+        "measurementId": ""
+    }
 }

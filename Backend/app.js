@@ -21,7 +21,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server, { cors: corsHeader });
 
 // Load port from configuration file.
-const PORT = require('./config.json').port;
+const PORT = require('./config.json').backend.port;
 
 // For encoding CRUD requests.
 app.use(
@@ -52,13 +52,6 @@ app.get('/getAllCodeBlocks', (req, res) => {
     dynamodb.getAllBlocks(res);
 });
 
-// Handle GET requests -- return the ID of the mentor of a given room (by room-ID).
-app.get('/getMentor', (req, res) => {
-  const roomId = req.query.blockId;
-  const mentor = (roomId in rooms) ? rooms[roomId][0] : null;
-  res.json({ mentorId: mentor });
-});
-
 // Handle POST requests -- requests the table in the DynamoDB to create a new code-block.
 app.post('/createblock', (req, res) => {
   const title = req.body.title;
@@ -79,6 +72,18 @@ app.put('/updateblock', (req, res) => {
 app.delete('/deleteblock', (req, res) => {
   const id = req.query.id;
   dynamodb.deleteBlock(res, id);
+});
+
+// Handle GET requests -- reset rooms.
+app.get('/reset', (req, res) => {
+  Object.keys(rooms).forEach(key => {
+    delete rooms[key];
+  })
+});
+
+// Handle GET requests -- retrieve all participants in all rooms.
+app.get('/getrooms', (req, res) => {
+  res.json(rooms)
 });
 
 // This object helps to manage the different sockets and rooms.
@@ -107,7 +112,6 @@ io.on('connection', (socket) => {
     try {
       const i = rooms[data.roomId].indexOf(data.socketId);
       rooms[data.roomId].splice(i, 1);
-      socket.to(data.roomId).emit('recieve_message', rooms[roomId][0]);
     } catch (e) {}
   });
 });
