@@ -1,5 +1,8 @@
 # OnlineCodeBlocks
+<br>
 
+### { The backend server is currently stopped. Please contact me to start the server and demonstrate the app. }
+<br>
 
 ## Introduction
 
@@ -45,7 +48,7 @@ You can use any of the following links to try the app:
 
 ## Architecture
 
-![ocb-architecture drawio](https://user-images.githubusercontent.com/72878018/211220847-e5394fde-7da5-424a-bba3-022f592f2103.png)
+![ocb-architecture drawio](https://user-images.githubusercontent.com/72878018/211475127-f391503e-891f-488e-95bc-d60871f22517.png)
 
 
 ## Notes
