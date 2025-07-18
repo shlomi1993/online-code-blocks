@@ -88,7 +88,7 @@ online-code-blocks/
 
 ---
 
-## ⚙️ Local Development
+## Local Development
 
 ```bash
 # Clone with submodules
