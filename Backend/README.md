@@ -25,7 +25,7 @@ This backend application is built with **Node.js**, **Express**, **Socket.IO**, 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 online-code-blocks-backend/
