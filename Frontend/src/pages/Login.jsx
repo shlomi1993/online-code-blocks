@@ -58,7 +58,7 @@ const Login = () => {
       <p>To use the app, you and your partner needs to sign in with your Google account.</p>
     </div>
     <div className='Login-signin'>
-      <Button variant='contained' size='large' onClick={() => signInWithGoogle()}><img src={require('../assets/google.png')}/>Sign-in with Google</Button>
+      <Button variant='contained' size='large' onClick={() => signInWithGoogle()}>Sign-in with Google</Button>
     </div>
   </div> 
 
