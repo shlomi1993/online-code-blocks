@@ -3,4 +3,4 @@
 	url = https://github.com/shlomi1993/online-code-blocks-frontend.git
 [submodule "backend"]
 	path = backend
-	url = https://github.com/shlomi1993/online-code-blocks-frontend.git
+	url = https://github.com/shlomi1993/online-code-blocks-backend.git
