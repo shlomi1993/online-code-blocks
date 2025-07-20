@@ -15,16 +15,12 @@ This monorepo uses Git submodules to include the frontend and backend codebases.
 
 ![UI Preview](https://user-images.githubusercontent.com/72878018/211213980-f213146e-453a-47c0-bf6e-e6a25472a08a.png)
 
----
-
 ## Demo
 
 Try it here - you may need to ask me to activate the backend server:
 
 * [https://main.d2piff1wyqa5iw.amplifyapp.com/](https://main.d2piff1wyqa5iw.amplifyapp.com/)
 * [https://online-code-blocks-frontend.vercel.app/](https://online-code-blocks-frontend.vercel.app/)
-
----
 
 ## How to Use
 
@@ -33,8 +29,6 @@ Try it here - you may need to ask me to activate the backend server:
 3. Select the **same code block** in both browsers.
 4. You should see code changes in real-time, synchronized between the two views.
 
----
-
 ## Key Features
 
 * Google authentication
@@ -42,8 +36,6 @@ Try it here - you may need to ask me to activate the backend server:
 * Syntax highlighting
 * Persistent storage via DynamoDB
 * Clean, responsive UI
-
----
 
 ## Tech Stack
 
@@ -66,8 +58,6 @@ Try it here - you may need to ask me to activate the backend server:
 * **Google Firebase** for OAuth
 * **Hosted on AWS Amplify & Vercel**
 
----
-
 ## Repository Structure
 
 ```
@@ -80,13 +70,9 @@ online-code-blocks/
 └── README.md
 ```
 
----
-
 ## Architecture
 
 ![Architecture Diagram](https://user-images.githubusercontent.com/72878018/211475127-f391503e-891f-488e-95bc-d60871f22517.png)
-
----
 
 ## Local Development
 
@@ -104,8 +90,6 @@ npm start
 # Run backend (default: http://localhost:5000 or based on config)
 npm start
 ```
-
----
 
 ## Notes
 
